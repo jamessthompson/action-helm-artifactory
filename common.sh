@@ -77,5 +77,5 @@ helm_package(){
 helm_push(){
     print_title "Push chart"
     echo "${CHART_DIR}" "${ARTIFACTORY_URL}"  "${ARTIFACTORY_USERNAME}"
-    helm push-artifactory "${CHART_DIR}" "${ARTIFACTORY_URL}" --username "${ARTIFACTORY_USERNAME}" --password "${ARTIFACTORY_PASSWORD}" --version "${CHART_VERSION}"
+    helm push-artifactory "${CHART_DIR}" "${ARTIFACTORY_URL}" --username "${ARTIFACTORY_USERNAME}" --password "${ARTIFACTORY_PASSWORD}" --version "${CHART_VERSION}" --skip-reindex
 }
