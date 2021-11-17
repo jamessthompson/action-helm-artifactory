@@ -20,7 +20,7 @@ fix_chart_version(){
         pushd "$CHART_DIR"
         CANDIDATE_VERSION=$(python3 -c "import yaml; f=open('Chart.yaml','r');  p=yaml.safe_load(f.read()); print(p['version']); f.close()" )
         popd
-        echo "${GITHUB_EVENT_NAME}"
+        echo "GitHub Event Name: ${GITHUB_EVENT_NAME}"
         if [ "${GITHUB_EVENT_NAME}" == "pull_request" ]; then
             CHART_VERSION="${CANDIDATE_VERSION}-$(git rev-parse --short "$GITHUB_SHA")"
         else
@@ -76,5 +76,6 @@ helm_package(){
 
 helm_push(){
     print_title "Push chart"
+    echo "${CHART_DIR}" "${ARTIFACTORY_URL}"  "${ARTIFACTORY_USERNAME}"
     helm push-artifactory "${CHART_DIR}" "${ARTIFACTORY_URL}" --username "${ARTIFACTORY_USERNAME}" --password "${ARTIFACTORY_PASSWORD}" --version "${CHART_VERSION}"
 }
