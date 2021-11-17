@@ -13,5 +13,5 @@ runs:
     - run: ${{ github.action_path }}/main.sh
       shell: bash
       env:
-        action: ${{ inputs.action }}
+        ACTION: ${{ inputs.action }}
 
