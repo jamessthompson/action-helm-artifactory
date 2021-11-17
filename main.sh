@@ -12,7 +12,7 @@ install_helm
 install_artifactory_plugin
 fix_chart_version
 
-case "${ACTION}" in
+case "${INPUT_ACTION}" in
     "check")
         helm_dependency
         helm_lint
