@@ -12,6 +12,6 @@ runs:
     - uses: actions/setup-python@v2
     - run: ${{ github.action_path }}/main.sh
       shell: bash
-      with:
+      env:
         action: ${{ inputs.action }}
 
