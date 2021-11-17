@@ -6,12 +6,6 @@ branding:
 inputs:
   action:
     require: true
-  artifactory_url:
-    require: true
-  artifactory_username:
-    require: true
-  artifactory_password:
-    require: true
 
 runs:
   using: "composite"
@@ -21,6 +15,4 @@ runs:
       shell: bash
       env:
         ACTION: ${{ inputs.action }}
-        ARTIFACTORY_URL: ${{ inputs.artifactory_url}}
-        ARTIFACTORY_USERNAME: ${{ inputs.artifactory_username}}
-        ARTIFACTORY_PASSWORD: ${{ inputs.artifactory_password}}
+
